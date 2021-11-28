@@ -11,7 +11,7 @@ variable "location" {
 }
 
 
-variable "client_id" {
+/*variable "client_id" {
   description = "Service Principal client id"
   type        = string
   sensitive   = true
@@ -23,7 +23,7 @@ variable "client_secret" {
   type        = string
   sensitive   = true
   default     = "nJi0j8Z05_mWEReJjAUDlr-a2SrQXXn-Z-"
-}
+}*/
 
 
 variable "node_count" {
