@@ -20,6 +20,10 @@ jobs:
           tf_actions_comment: true
         env:
           //GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: "Terraform Init"
         uses: hashicorp/terraform-github-actions@master
