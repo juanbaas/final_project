@@ -11,19 +11,17 @@ variable "location" {
 }
 
 
-/*variable "client_id" {
+variable "client_id" {
   description = "Service Principal client id"
   type        = string
   sensitive   = true
-  default     = "f970e950-4531-4828-b4aa-ddf37440543e"
 }
 
 variable "client_secret" {
   description = "Service Principal client secret (password)"
   type        = string
   sensitive   = true
-  default     = "nJi0j8Z05_mWEReJjAUDlr-a2SrQXXn-Z-"
-}*/
+}
 
 
 variable "node_count" {

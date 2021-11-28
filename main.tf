@@ -2,11 +2,10 @@ data "azurerm_resource_group" "rg" {
   name = "juan-baas"
 }
 
+# Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
-  skip_provider_registration = true
 }
-
 /*data "azurerm_kubernetes_cluster" "example" {
   name                = "teamthree-k8s"
   resource_group_name = data.azurerm_resource_group.rg.name
@@ -30,11 +29,17 @@ provider "kubernetes" {
 }*/
 
 terraform {
+    required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.87.0"
+    }
+  }
   backend "azurerm" {
     resource_group_name  = "juan-baas"
     storage_account_name = "storagejuanbaas"
     container_name       = "juanbaas"
-    key                  = "prod.terraform.tfstate"
+    key                  = "fstate"
   }
 }
 
