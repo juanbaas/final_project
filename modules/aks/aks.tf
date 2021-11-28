@@ -17,7 +17,7 @@
 #     client_id     = "${var.client_id}"
 #     client_secret = "${var.client_secret}"
 #   }
-  
+
 #   tags = {
 #     Environment = "Development"
 #     Creator = "Terraform"
@@ -27,8 +27,8 @@
 //NEW VERSION
 resource "azurerm_kubernetes_cluster" "example" {
   name                = "${var.prefix}-k8s"
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
   dns_prefix          = "demoaks1"
 
   default_node_pool {
