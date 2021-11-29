@@ -1,6 +1,6 @@
 variable "prefix" {
   description = "A prefix used for all resources in this example"
-  default     = "teamthree"
+  default     = "dou7"
   type        = string
 }
 

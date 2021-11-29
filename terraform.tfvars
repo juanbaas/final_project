@@ -1,4 +1,4 @@
-prefix               = "teamthree"
+prefix               = "dou7"
 resource_group_name  = "juan-baas"
 location             = "CentralUS"
 node_count           = 3 # Min 3 nodes recommended for production

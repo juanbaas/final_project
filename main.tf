@@ -13,12 +13,14 @@ data "azurerm_kubernetes_cluster" "example" {
 
 
 provider "helm" {
+  
   kubernetes {
     host                   = data.azurerm_kubernetes_cluster.example.kube_config.0.host
     client_certificate     = base64decode(data.azurerm_kubernetes_cluster.example.kube_config.0.client_certificate)
     client_key             = base64decode(data.azurerm_kubernetes_cluster.example.kube_config.0.client_key)
     cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.example.kube_config.0.cluster_ca_certificate)
   }
+  depends_on = [module.aks]
 }
 
 provider "kubernetes" {
@@ -39,10 +41,16 @@ terraform {
     resource_group_name  = "juan-baas"
     storage_account_name = "storagejuanbaas"
     container_name       = "juanbaas"
-    key                  = "fstate"
+    key                  = "tstate"
   }
 }
 
+
+resource "local_file" "kubeconfig" {
+  depends_on = [module.aks]
+  filename   = "kubeconfig"
+  content    = module.aks.kube_config
+}
 
 
 module "acr" {
@@ -66,6 +74,7 @@ module "aks" {
 
 module "helm" {
   source              = "./modules/helm"
+  //config_path         = "kubeconfig"
   prefix              = var.prefix
   location            = var.location
   client_id           = var.client_id

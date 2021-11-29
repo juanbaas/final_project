@@ -28,16 +28,16 @@ resource "kubernetes_namespace" "dev" {
   }
 }
 
-resource "kubernetes_namespace" "test-demo" {
+resource "kubernetes_namespace" "prod" {
   metadata {
     annotations = {
-      name = "test-demo-namespace"
+      name = "prod-namespace"
     }
 
     labels = {
-      mylabel = "test-demo-namespace"
+      mylabel = "prod-namespace"
     }
 
-    name = "test-demo"
+    name = "prod-demo"
   }
 }

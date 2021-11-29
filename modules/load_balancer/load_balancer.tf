@@ -8,7 +8,7 @@ resource "azurerm_lb" "example" {
     public_ip_address_id = var.public_ip_address_id
   }
   tags = {
-    Environment = "Development"
+    Environment = "prod"
     Creator     = "Terraform"
   }
 }

@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "example" {
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
   tags = {
-    Environment = "Development"
+    Environment = "prod"
     Creator     = "Terraform"
   }
 }
