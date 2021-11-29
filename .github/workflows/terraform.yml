@@ -47,6 +47,7 @@ jobs:
       - name: "Terraform Plan"
         uses: hashicorp/terraform-github-actions@master
         with:
+          working-directory: .
           tf_actions_version: 1.0.10
           tf_actions_subcommand: "plan"
           tf_actions_working_dir: '.'
