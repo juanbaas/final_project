@@ -53,9 +53,9 @@ module "acr" {
 }
 
 module "aks" {
-  source              = "./modules/aks"
-  prefix              = var.prefix
-  location            = var.location
+  source   = "./modules/aks"
+  prefix   = var.prefix
+  location = var.location
   //client_id           = var.client_id
   //client_secret       = var.client_secret
   node_count          = var.node_count
