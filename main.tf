@@ -6,7 +6,7 @@ data "azurerm_resource_group" "rg" {
 provider "azurerm" {
   features {}
 }
-data "azurerm_kubernetes_cluster" "example" {
+/*data "azurerm_kubernetes_cluster" "example" {
   name                = "teamthree-k8s"
   resource_group_name = data.azurerm_resource_group.rg.name
 }
@@ -26,7 +26,7 @@ provider "kubernetes" {
   client_certificate     = base64decode(data.azurerm_kubernetes_cluster.example.kube_config.0.client_certificate)
   client_key             = base64decode(data.azurerm_kubernetes_cluster.example.kube_config.0.client_key)
   cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.example.kube_config.0.cluster_ca_certificate)
-}
+}*/
 
 terraform {
   required_providers {
@@ -64,7 +64,7 @@ module "aks" {
   resource_group_name = data.azurerm_resource_group.rg.name
 }
 
-module "helm" {
+/*module "helm" {
   source              = "./modules/helm"
   prefix              = var.prefix
   location            = var.location
@@ -72,7 +72,7 @@ module "helm" {
   client_secret       = var.client_secret
   node_count          = var.node_count
   resource_group_name = data.azurerm_resource_group.rg.name
-}
+}*/
 
 module "load_balancer" {
   source               = "./modules/load_balancer"
